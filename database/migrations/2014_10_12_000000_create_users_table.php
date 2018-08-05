@@ -17,6 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('address');
+            $table->string('phone')->unique();
+            $table->string('image')->nullable();
+            $table->enum('role', ['admin', 'tour_guide', 'customer']);
+            $table->enum('status', ["0", "1"]);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
